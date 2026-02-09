@@ -236,6 +236,10 @@ nav .dropdown-menu .nav-link{color:rgba(0,0,0,0.6)!important;} /* Maintain Downd
 	background:rgba(0,0,0,.3);
 }
 
+.btn-xl{
+	padding: 16px 40px;
+	font-size: 28px;
+}
 
 
 /* Rounded Image */
