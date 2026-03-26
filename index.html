@@ -8,8 +8,8 @@
 	<meta name="robots" content="index, follow">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?1050">
-	<link rel="stylesheet" type="text/css" href="style.css?4508">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?2168">
+	<link rel="stylesheet" type="text/css" href="style.css?5973">
 	<link href='https://fonts.googleapis.com/css?family=Poppins:100,500,700,40&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <title>Home</title>
 
@@ -66,183 +66,61 @@
 <!-- bloc-0 END -->
 
 <!-- bloc-1 -->
-<div class="bloc l-bloc " id="bloc-1">
+<div class="bloc l-bloc" id="bloc-1">
 	<div class="container bloc-lg">
 		<div class="row">
 			<div class="col text-start">
-				<div>
-					<section class="latest-titles-section">
-  <h2 class="latest-titles-heading">Latest Titles</h2>
+				<div class=" ">
+					<section style="text-align:center; padding:40px 20px; background:#f3f3f3;">
+  <h2 style="font-family:Arial,sans-serif; font-size:2rem; color:#666; margin-bottom:25px;">
+    Latest Titles
+  </h2>
 
-  <div class="book-carousel">
-    <button class="carousel-arrow prev" id="prevBtn">❮</button>
+  <div style="position:relative; max-width:260px; margin:0 auto;">
 
-    <div class="carousel-track-wrapper">
-      <div class="carousel-track">
-        <a href="https://www.minervaacademic.com/foundations-of-social-movement-theory/" class="book-slide active">
-          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409702.jpg" alt="Foundations of Social Movement Theory" class="lazyload">
-        </a>
+    <!-- radio controls -->
+    <input type="radio" name="slider" id="slide1" checked="" hidden="">
+    <input type="radio" name="slider" id="slide2" hidden="">
 
-        <a href="https://www.minervaacademic.com/9781919409726/" class="book-slide">
-          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409726.jpg" alt="Book cover" class="lazyload">
+    <!-- slides -->
+    <div style="position:relative; width:100%; height:auto;">
+
+      <div class="slide s1">
+        <a href="https://www.minervaacademic.com/foundations-of-social-movement-theory/">
+          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409702.jpg" style="width:100%; border-radius:6px;" class="lazyload">
         </a>
       </div>
+
+      <div class="slide s2">
+        <a href="https://www.minervaacademic.com/9781919409726/">
+          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409726.jpg" style="width:100%; border-radius:6px;" class="lazyload">
+        </a>
+      </div>
+
     </div>
 
-    <button class="carousel-arrow next" id="nextBtn">❯</button>
+    <!-- arrows -->
+    <div style="position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); display:flex; justify-content:space-between;">
+      <label for="slide2" style="cursor:pointer; background:rgba(0,0,0,0.3); color:#fff; padding:10px 14px; border-radius:50%;">❮</label>
+      <label for="slide1" style="cursor:pointer; background:rgba(0,0,0,0.3); color:#fff; padding:10px 14px; border-radius:50%;">❯</label>
+    </div>
+
   </div>
 </section>
 
 <style>
-.latest-titles-section {
-  text-align: center;
-  padding: 40px 20px;
-  background: #f3f3f3;
-}
-
-.latest-titles-heading {
-  font-family: Arial, sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #666;
-  margin-bottom: 25px;
-}
-
-.book-carousel {
-  position: relative;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.carousel-track-wrapper {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-track {
-  width: 100%;
-}
-
-.book-slide {
+.slide {
   display: none;
-  text-decoration: none;
 }
 
-.book-slide.active {
+#slide1:checked ~ div .s1 {
   display: block;
 }
 
-.book-slide img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
+#slide2:checked ~ div .s2 {
   display: block;
-  margin: 0 auto;
-  border-radius: 4px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-.carousel-arrow {
-  background: rgba(180,180,180,0.35);
-  border: none;
-  color: white;
-  font-size: 24px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-.carousel-arrow.prev {
-  left: -55px;
-}
-
-.carousel-arrow.next {
-  right: -55px;
-}
-
-@media (max-width: 768px) {
-  .book-carousel {
-    max-width: 220px;
-  }
-
-  .book-slide img {
-    max-width: 220px;
-  }
-
-  .carousel-arrow.prev {
-    left: -20px;
-  }
-
-  .carousel-arrow.next {
-    right: -20px;
-  }
 }
 </style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".book-slide");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  let currentSlide = 0;
-  let autoSlide;
-
-  function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
-
-    if (index &gt;= slides.length) {
-      currentSlide = 0;
-    } else if (index &lt; 0) {
-      currentSlide = slides.length - 1;
-    } else {
-      currentSlide = index;
-    }
-
-    slides[currentSlide].classList.add("active");
-  }
-
-  function nextSlide() {
-    showSlide(currentSlide + 1);
-  }
-
-  function prevSlide() {
-    showSlide(currentSlide - 1);
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      nextSlide();
-      restartAutoSlide();
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-      prevSlide();
-      restartAutoSlide();
-    });
-  }
-
-  function startAutoSlide() {
-    autoSlide = setInterval(function () {
-      nextSlide();
-    }, 4000);
-  }
-
-  function restartAutoSlide() {
-    clearInterval(autoSlide);
-    startAutoSlide();
-  }
-
-  showSlide(currentSlide);
-  startAutoSlide();
-});
-</script>
 					
 				</div>
 			</div>
@@ -279,8 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- Additional JS -->
-<script src="./js/bootstrap.bundle.min.js?8763"></script>
-<script src="./js/blocs.min.js?4742"></script>
+<script src="./js/bootstrap.bundle.min.js?3310"></script>
+<script src="./js/blocs.min.js?6459"></script>
 <script src="./js/lazysizes.min.js" defer></script><!-- Additional JS END -->
 
 
