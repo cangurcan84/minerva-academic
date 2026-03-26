@@ -8,8 +8,8 @@
 	<meta name="robots" content="index, follow">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?1862">
-	<link rel="stylesheet" type="text/css" href="style.css?2220">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?8596">
+	<link rel="stylesheet" type="text/css" href="style.css?5395">
 	<link href='https://fonts.googleapis.com/css?family=Poppins:100,500,700,40&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <title>Home</title>
 
@@ -66,11 +66,11 @@
 <!-- bloc-0 END -->
 
 <!-- bloc-1 -->
-<div class="bloc l-bloc " id="bloc-1">
+<div class="bloc l-bloc" id="bloc-1">
 	<div class="container bloc-lg">
 		<div class="row">
 			<div class="col text-start">
-				<div>
+				<div class=" ">
 					<section class="latest-titles-section">
   <h2 class="latest-titles-heading">Latest Titles</h2>
 
@@ -78,9 +78,9 @@
     <button class="carousel-arrow prev" onclick="moveSlide(-1)">❮</button>
 
     <div class="carousel-track-wrapper">
-      <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-track">
 
-        <a href="https://www.minervaacademic.com/foundations-of-social-movement-theory/" class="book-slide">
+        <a href="https://www.minervaacademic.com/foundations-of-social-movement-theory/" class="book-slide active">
           <picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="images/9781919409702.webp"><img src="img/lazyload-ph.png" data-src="images/9781919409702.jpg" class="lazyload"></picture>
         </a>
 
@@ -95,35 +95,103 @@
   </div>
 </section>
 
+<style>
+.latest-titles-section {
+  text-align: center;
+  padding: 30px 20px;
+  background: #f3f3f3;
+}
+
+.latest-titles-heading {
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.book-carousel {
+  position: relative;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.carousel-track-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  width: 100%;
+}
+
+.book-slide {
+  display: none;
+  text-decoration: none;
+}
+
+.book-slide.active {
+  display: block;
+}
+
+.book-slide img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.carousel-arrow {
+  background: rgba(180,180,180,0.35);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow.prev {
+  left: -60px;
+}
+
+.carousel-arrow.next {
+  right: -60px;
+}
+</style>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
   let currentSlide = 0;
-  const slides = document.querySelectorAll('.book-slide');
+  const slides = document.querySelectorAll(".book-slide");
 
   function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
+    slides.forEach(slide => slide.classList.remove("active"));
 
-    if (index &gt;= slides.length) currentSlide = 0;
-    else if (index &lt; 0) currentSlide = slides.length - 1;
-    else currentSlide = index;
+    if (index &gt;= slides.length) {
+      currentSlide = 0;
+    } else if (index &lt; 0) {
+      currentSlide = slides.length - 1;
+    } else {
+      currentSlide = index;
+    }
 
-    slides[currentSlide].classList.add('active');
+    if (slides.length &gt; 0) {
+      slides[currentSlide].classList.add("active");
+    }
   }
 
-  function moveSlide(direction) {
+  window.moveSlide = function(direction) {
     showSlide(currentSlide + direction);
-  }
-
-  // global yap (butonlar için)
-  window.moveSlide = moveSlide;
+  };
 
   showSlide(currentSlide);
-
-  setInterval(() => {
-    moveSlide(1);
-  }, 4000);
-
 });
 </script>
 					
@@ -162,8 +230,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- Additional JS -->
-<script src="./js/bootstrap.bundle.min.js?1032"></script>
-<script src="./js/blocs.min.js?1089"></script>
+<script src="./js/bootstrap.bundle.min.js?8508"></script>
+<script src="./js/blocs.min.js?3032"></script>
 <script src="./js/lazysizes.min.js" defer></script><!-- Additional JS END -->
 
 
