@@ -8,8 +8,8 @@
 	<meta name="robots" content="index, follow">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?2168">
-	<link rel="stylesheet" type="text/css" href="style.css?5973">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?8618">
+	<link rel="stylesheet" type="text/css" href="style.css?2165">
 	<link href='https://fonts.googleapis.com/css?family=Poppins:100,500,700,40&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <title>Home</title>
 
@@ -66,59 +66,160 @@
 <!-- bloc-0 END -->
 
 <!-- bloc-1 -->
-<div class="bloc l-bloc" id="bloc-1">
+<div class="bloc l-bloc " id="bloc-1">
 	<div class="container bloc-lg">
 		<div class="row">
 			<div class="col text-start">
-				<div class=" ">
+				<div>
 					<section style="text-align:center; padding:40px 20px; background:#f3f3f3;">
   <h2 style="font-family:Arial,sans-serif; font-size:2rem; color:#666; margin-bottom:25px;">
     Latest Titles
   </h2>
 
-  <div style="position:relative; max-width:260px; margin:0 auto;">
+  <div class="book-slider">
+    <input type="radio" name="slider" id="slide1" checked="">
+    <input type="radio" name="slider" id="slide2">
 
-    <!-- radio controls -->
-    <input type="radio" name="slider" id="slide1" checked="" hidden="">
-    <input type="radio" name="slider" id="slide2" hidden="">
-
-    <!-- slides -->
-    <div style="position:relative; width:100%; height:auto;">
-
+    <div class="slides">
       <div class="slide s1">
         <a href="https://www.minervaacademic.com/foundations-of-social-movement-theory/">
-          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409702.jpg" style="width:100%; border-radius:6px;" class="lazyload">
+          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409702.jpg" alt="Foundations of Social Movement Theory" class="lazyload">
         </a>
       </div>
 
       <div class="slide s2">
         <a href="https://www.minervaacademic.com/9781919409726/">
-          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409726.jpg" style="width:100%; border-radius:6px;" class="lazyload">
+          <img src="img/lazyload-ph.png" data-src="https://www.minervaacademic.com/images/9781919409726.jpg" alt="Book cover" class="lazyload">
         </a>
       </div>
-
     </div>
 
-    <!-- arrows -->
-    <div style="position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); display:flex; justify-content:space-between;">
-      <label for="slide2" style="cursor:pointer; background:rgba(0,0,0,0.3); color:#fff; padding:10px 14px; border-radius:50%;">❮</label>
-      <label for="slide1" style="cursor:pointer; background:rgba(0,0,0,0.3); color:#fff; padding:10px 14px; border-radius:50%;">❯</label>
+    <div class="nav nav-for-slide1">
+      <label for="slide2" class="arrow left">❮</label>
+      <label for="slide2" class="arrow right">❯</label>
     </div>
 
+    <div class="nav nav-for-slide2">
+      <label for="slide1" class="arrow left">❮</label>
+      <label for="slide1" class="arrow right">❯</label>
+    </div>
+
+    <div class="dots">
+      <label for="slide1" class="dot"></label>
+      <label for="slide2" class="dot"></label>
+    </div>
   </div>
 </section>
 
 <style>
+.book-slider {
+  position: relative;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.book-slider input[type="radio"] {
+  display: none;
+}
+
+.slides {
+  position: relative;
+}
+
 .slide {
   display: none;
 }
 
-#slide1:checked ~ div .s1 {
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+#slide1:checked ~ .slides .s1 {
   display: block;
 }
 
-#slide2:checked ~ div .s2 {
+#slide2:checked ~ .slides .s2 {
   display: block;
+}
+
+.nav {
+  display: none;
+}
+
+#slide1:checked ~ .nav-for-slide1 {
+  display: block;
+}
+
+#slide2:checked ~ .nav-for-slide2 {
+  display: block;
+}
+
+.arrow {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  background: rgba(0,0,0,0.28);
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  font-family: Arial, sans-serif;
+}
+
+.arrow.left {
+  left: -70px;
+}
+
+.arrow.right {
+  right: -70px;
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.45);
+}
+
+.dots {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#slide1:checked ~ .dots label[for="slide1"],
+#slide2:checked ~ .dots label[for="slide2"] {
+  background: #666;
+}
+
+@media (max-width: 768px) {
+  .book-slider {
+    max-width: 190px;
+  }
+
+  .arrow.left {
+    left: -25px;
+  }
+
+  .arrow.right {
+    right: -25px;
+  }
 }
 </style>
 					
@@ -157,8 +258,8 @@
 
 
 <!-- Additional JS -->
-<script src="./js/bootstrap.bundle.min.js?3310"></script>
-<script src="./js/blocs.min.js?6459"></script>
+<script src="./js/bootstrap.bundle.min.js?5869"></script>
+<script src="./js/blocs.min.js?8148"></script>
 <script src="./js/lazysizes.min.js" defer></script><!-- Additional JS END -->
 
 
