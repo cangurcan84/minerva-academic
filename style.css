@@ -672,11 +672,11 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .bgc-5860{
 	background-color:var(--swatch-var-5860);
 }
-.bgc-5700{
-	background-color:var(--swatch-var-5700);
-}
 .bgc-5091{
 	background-color:var(--swatch-var-5091);
+}
+.bgc-5700{
+	background-color:var(--swatch-var-5700);
 }
 .bgc-4919{
 	background-color:var(--swatch-var-4919);
