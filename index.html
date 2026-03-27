@@ -8,8 +8,8 @@
 	<meta name="robots" content="index, follow">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?644">
-	<link rel="stylesheet" type="text/css" href="style.css?776">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?9086">
+	<link rel="stylesheet" type="text/css" href="style.css?9480">
 	<link href='https://fonts.googleapis.com/css?family=Poppins:100,500,700,40&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <title>Home</title>
 
@@ -79,6 +79,7 @@
   <div class="book-slider">
     <input type="radio" name="slider" id="slide1" checked="">
     <input type="radio" name="slider" id="slide2">
+    <input type="radio" name="slider" id="slide3">
 
     <div class="slides">
       <div class="slide s1">
@@ -159,6 +160,10 @@
   display: block;
 }
 
+#slide3:checked ~ .slides .s3 {
+  display: block;
+}
+
 .book-nav {
   display: none;
 }
@@ -168,6 +173,10 @@
 }
 
 #slide2:checked ~ .book-nav-for-slide2 {
+  display: block;
+}
+
+#slide3:checked ~ .book-nav-for-slide3 {
   display: block;
 }
 
@@ -217,7 +226,8 @@
 }
 
 #slide1:checked ~ .dots label[for="slide1"],
-#slide2:checked ~ .dots label[for="slide2"] {
+#slide2:checked ~ .dots label[for="slide2"],
+#slide3:checked ~ .dots label[for="slide3"] {
   background: #666;
 }
 
@@ -271,8 +281,8 @@
 
 
 <!-- Additional JS -->
-<script src="./js/bootstrap.bundle.min.js?6918"></script>
-<script src="./js/blocs.min.js?3731"></script>
+<script src="./js/bootstrap.bundle.min.js?7445"></script>
+<script src="./js/blocs.min.js?8465"></script>
 <script src="./js/lazysizes.min.js" defer></script><!-- Additional JS END -->
 
 
